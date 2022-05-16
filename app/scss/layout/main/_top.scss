@@ -1,0 +1,127 @@
+.top {
+    @include paddingtop;
+
+    .container {
+        @include mq-medium-down {
+            padding: 0;
+        }
+    }
+
+    &-inner {
+        @include flex(space-between, center, row);
+
+        @include mq-medium-down {
+            flex-direction: column;
+            height: calc(100vh - 7rem);
+            text-align: center;
+        }
+    }
+
+    &-copy {
+        .eyebrow {
+            @include text(3.2rem, null, 200);
+
+            @include mq-medium-down {
+                font-size: 2.2rem;
+            }
+        }
+
+        .subhead {
+            @include text(1.8rem, null, 300);
+        }
+    }
+
+    .social-list {
+        margin: 2.5rem 0 4rem;
+
+        @include mq-medium-down {
+            display: none;
+        }
+
+        .social-link {
+            height: 4.1rem;
+            position: relative;
+
+            &::after {
+                @include position(absolute, 0, 0, 0, 0);
+                content: "";
+                display: none;
+                background-color: $focus--tp;
+            }
+
+            &:focus {
+                outline: none;
+
+                &::after {
+                    display: block;
+                }
+            }
+        }
+    }
+
+    &-image {
+        max-width: 50rem;
+        height: 65%;
+        overflow: hidden;
+        text-align: right;
+
+        @include mq-medium-down {
+            max-width: none;
+            width: 100%;
+            margin: 2rem 0;
+        }
+
+        img {
+            width: 100%;
+            height: 50rem;
+            border-radius: 0.5rem;
+            object-fit: cover;
+
+            @include mq-medium-down {
+                height: 100%;
+                border-radius: 0;
+                // object-position: center -10rem;
+            }
+        }
+    }
+
+    .cta-links {
+        @include mq-medium-down {
+            display: none;
+        }
+
+        .btn:not(:first-child) {
+            margin-left: 1.5rem;
+        }
+    }
+
+    .mobile-other {
+        display: none;
+
+        @include mq-medium-down {
+            display: block;
+        }
+
+        .social-list {
+            @include flex(center);
+
+            @include mq-medium-down {
+                margin-bottom: 2rem;
+            }
+        }
+
+        .cta-links {
+            display: block;
+            margin: 1rem 0;
+        }
+    }
+
+}
+
+.social-list {
+    @include flex;
+
+    li:not(:first-child) {
+        margin-left: .5rem;
+    }
+}

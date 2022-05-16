@@ -1,0 +1,43 @@
+button {
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    border: none;
+}
+
+.btn {
+    padding: 1rem 3rem;
+    border: 2px solid $button-border;
+    border-radius: 2rem;
+    @include text(1.4rem, null, 700);
+    text-transform: uppercase;
+    background-color: $button-background;
+    transition: background-color .2s linear, box-shadow .2s linear;
+    @include mq-medium-down {
+        @include text(1.2rem);
+        padding: 1rem 2rem;
+    }
+
+    &:hover {
+        background-color: $button_hover-background;
+        color: $button_hover-text-color;
+        box-shadow: 2px 2px 10px 0 rgba(0, 0, 0, 0.25);
+    }
+
+    &:focus {
+        outline: none;
+        border-color: $focus;
+    }
+
+    &.black {
+        background-color: $button--mod-background;
+        color: $button--mod-text-color;
+        box-shadow: 2px 2px 10px 0 rgba(0, 0, 0, 0.25);
+
+        &:hover {
+            background-color: $button--mod_hover-background;
+            color: $button--mod_hover-text-color;
+            box-shadow: none;
+        }
+    }
+}

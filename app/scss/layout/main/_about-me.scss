@@ -1,0 +1,69 @@
+.aboutme {
+    &-inner {
+        @include flex(flex-start, center);
+        max-width: 109rem;
+
+        .aboutme-image-wrap {
+            margin-right: 4.5rem;
+            overflow: hidden;
+            width: 50%;
+
+            @include mq-medium-down {
+                display: none;
+            }
+
+            .aboutme-image {
+                display: block;
+                max-width: 100%;
+                height: auto;
+                object-fit: cover;
+            }
+        }
+
+        .aboutme-maincontent {
+            width: 50%;
+            @include mq-medium-down {
+                width: 100%;
+                text-align: center;
+            }
+
+            .aboutme-copy {
+                .headline {
+                    @include mq-exlarge-down {
+                        @include text(3.5rem);
+                    }
+                }
+
+                .subhead {
+                    @include text(9.2rem, 1.1, 700, rgba($primary-dark, .15));
+
+                    @include mq-exlarge-down {
+                        @include text(6rem);
+                    }
+
+                    @include mq-medium-down {
+                        @include text(2.5rem)
+                    }
+                }
+
+                .paragraph {
+                    @include text(1.2rem, 2.4rem, 300);
+                    margin: 2rem 0 4rem;
+
+                    @include mq-medium-down {
+                        margin: 1.5rem 0;
+                    }
+
+                    @include mq-small-down {
+                        max-height: 40rem;
+                        overflow: hidden;
+                    }
+                }
+            }
+
+            .btn:not(:first-child) {
+                margin-left: 1rem;
+            }
+        }
+    }
+}

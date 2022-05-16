@@ -1,0 +1,143 @@
+.modalcontact-dialog {
+    display: flex;
+    max-width: 90rem;
+    background-color: $modal-background;
+    position: relative;
+
+    @include mq-medium-down {
+        width: 100%;
+        height: 100%;
+    }
+
+    .info-module {
+        width: 48%;
+        padding: 3.5rem;
+
+        @include mq-medium-down {
+            text-align: center;
+            width: 100%;
+            margin: auto;
+        }
+
+        .content {
+            &-top {
+                .headline {
+                    @include text(4.5rem, null, 700);
+
+                    @include mq-small-down {
+                        @include text(3rem);
+                    }
+                }
+
+                .subhead {
+                    @include text(1.6rem, 4.5rem);
+
+                    @include mq-small-down {
+                        @include text(1.4rem, 3rem);
+                    }
+                }
+            }
+
+            &-contact {
+                display: flex;
+                flex-direction: column;
+                margin: 2rem 0 4.5rem;
+
+                .number,
+                .email {
+                    @include text(1.4rem, 3rem, 300);
+                    padding-left: 2.5rem;
+                    position: relative;
+
+                    &::before {
+                        content: "";
+                        width: 1.4em;
+                        position: absolute;
+                        top: 50%;
+                        transform: translate(-120%, -50%);
+                    }
+                }
+
+                .number::before {
+                    background: url(../../../images/icon/phone.png) no-repeat;
+                    height: 1.8rem;
+                }
+
+                .email::before {
+                    background: url(../../../images/icon/message.png) no-repeat;
+                    height: 1.4rem;
+                }
+            }
+
+            .form {
+                &__group {
+                    margin-bottom: 2.5rem;
+
+                    label {
+                        display: inline-block;
+                        margin-bottom: 0.5rem;
+                        @include text(1.2rem, 2.5rem, 700);
+                    }
+
+                    input,
+                    textarea {
+                        display: block;
+                        width: 100%;
+                        padding: 2.1rem 2.8rem 1.8rem;
+                        border: 1px solid $form-border;
+                        border-radius: 2.7rem;
+                        font-family: inherit;
+                        @include text(1.2rem);
+
+                        @include mq-medium-down {
+                            text-align: center;
+                        }
+
+                        &:focus {
+                            outline: none;
+                            border-color: $focus;
+                        }
+                    }
+
+                    input {
+                        height: 5.5rem;
+
+                        @include mq-medium-down {
+                            height: 3rem;
+                        }
+                    }
+
+                    textarea {
+                        height: 20rem;
+                        resize: none;
+
+                        @include mq-small-down {
+                            height: 10rem;
+                        }
+                    }
+                }
+
+                .btn-wrap {
+                    text-align: right;
+
+                    @include mq-medium-down {
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+
+    .image-module {
+        width: 52%;
+        @include mq-medium-down {
+            display: none;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}

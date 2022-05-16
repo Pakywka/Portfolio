@@ -1,0 +1,46 @@
+.modal {
+    display: none;
+    width: 100%;
+    height: 100%;
+    padding: 2rem 1rem;
+    background-color: rgba(15, 10, 29, 0.98);
+    @include position(fixed, 0, 0, 0, 0);
+    z-index: 999;
+    overflow-y: scroll;
+
+    @include mq-medium-down {
+        
+        padding: 0;
+    }
+
+    &-inner {
+        margin: auto;
+        @include mq-medium-down {
+            @include position(absolute);
+            height: 100%;
+            width: 100%;
+            margin: 0;
+        }
+    }
+
+    button.close {
+        position: absolute;
+        top: 1.3rem;
+        right: 1.3rem;
+        background-color: transparent;
+        border: none;
+        border-radius: 4rem;
+        transition: background-color .2s;
+        @include mq-medium-down {
+            position: fixed;
+        }
+
+        &:hover {
+            background-color: thistle;
+        }
+    }
+}
+
+.show {
+    display: flex;
+}

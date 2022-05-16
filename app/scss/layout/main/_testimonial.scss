@@ -1,0 +1,48 @@
+.testimonial {
+    background-color: $testimonial-background;
+    padding: 4rem 0 7rem;
+    margin: 6rem 0 18rem;
+    position: relative;
+    text-align: center;
+    @include mq-medium-down {
+        margin: 3rem 0 15rem;
+    }
+
+    .background-image {
+        @include position(absolute, 0, 0, 0, 0);
+        overflow: hidden;
+    }
+
+    p {
+        @include text(1.4rem, 3.2rem, null, $text-color-light);
+        max-width: 83rem;
+        margin: 0 auto;
+        z-index: 1;
+    }
+
+    .profile {
+        @include position(absolute, null, null, -12rem, 50%);
+        transform: translateX(-50%);
+
+        .avatar {
+            width: 10rem;
+            height: 10rem;
+            border: 0.4rem solid $primary-light;
+        }
+
+        figcaption {
+            .owner {
+                @include text(1.6rem, 2.2rem, 700);
+            }
+
+            .specialty {
+                @include text(1.4rem, 2.2rem, 300);
+                font-style: italic;
+            }
+
+            .rate {
+                margin-top: 0.5rem;
+            }
+        }
+    }
+}

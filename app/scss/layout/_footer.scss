@@ -1,0 +1,100 @@
+.site-footer {
+    @extend %color;
+    height: 5.8rem;
+    overflow: hidden;
+    background-color: $footer-background;
+
+    @include mq-small-down {
+        height: 8rem;
+        padding: 1rem 0;
+    }
+
+    .container {
+        height: 100%;
+    }
+
+    .footer-inner {
+        @include flex(space-between);
+        height: inherit;
+
+        @include mq-medium-down {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer-info {
+            @include flex(flex-start, center, row);
+
+            @include mq-small-down {
+                height: 100%;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+
+            .copyright {
+                @include text (1.4rem);
+
+                @include mq-small-down {
+                    @include text (1.2rem);
+                }
+            }
+
+            .thin {
+                margin: 0 1.2rem;
+                height: 2.1rem;
+                width: 0.1rem;
+
+                @include mq-small-down {
+                    display: none;
+                }
+            }
+
+            .social-list {
+                @include flex;
+
+                li:not(:first-child) {
+                    margin-left: 1.7rem;
+                }
+            }
+        }
+
+        .footer-nav-list {
+            @include flex(null, center);
+
+            @include mq-medium-down {
+                display: none;
+            }
+
+            .nav-item {
+                &:not(:first-child) {
+                    margin-left: 1.5rem;
+                }
+
+                a.nav-link {
+                    @extend %color;
+                    @include text(1.4rem, null, 400);
+
+                    text-transform: unset;
+
+                    &::after {
+                        display: none;
+                    }
+                }
+
+                button {
+                    @extend %color;
+                    padding: 0.7rem 2rem;
+                    border-color: $footer-text-color;
+                    border-width: 1px;
+                    font-weight: 400;
+                    background-color: transparent;
+                }
+            }
+        }
+    }
+}
+
+%color {
+    color: $footer-text-color;
+}

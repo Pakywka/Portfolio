@@ -1,0 +1,238 @@
+.modalresume-dialog {
+    max-width: 120rem;
+    display: flex;
+    justify-content: center;
+    background-color: $modal-background;
+    position: relative;
+    @include mq-medium-down {
+        width: 100%;
+        padding: 3rem 0;
+    }
+
+    .content-wrap {
+        padding: 7rem 15rem;
+        text-align: center;
+        overflow: hidden;
+        @include mq-medium-down {
+            padding: 0 3.5rem;
+        }
+
+        .headline-top {
+            text-align: center;
+            font-size: 4.5rem;
+            font-weight: 700;
+            line-height: 5rem;
+            margin-bottom: 5.5rem;
+            @include mq-medium-down {
+                margin-bottom: 3rem;
+                @include text(3rem, 3rem);
+            }
+        }
+
+        .push-wrap {
+            text-align: center;
+            @include mq-small-down {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            } 
+
+            button {
+                border: 1px solid $border;
+                border-radius: 3rem;
+                width: 14.6rem;
+                height: 3.8rem;
+
+                &:first-child {
+                    margin-right: .75rem;
+                    @include mq-small-down {
+                        margin: 0 0 .5rem;
+                    }
+                }
+
+                &:last-child {
+                    margin-left: .75rem;
+                    @include mq-small-down {
+                        margin: .5rem 0 0;
+                    }
+                }
+            }
+        }
+
+        .headline {
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 2.5rem;
+            text-transform: uppercase;
+        }
+
+        .subhead {
+            font-size: 1.4rem;
+            line-height: 2.2rem;
+            text-transform: capitalize;
+        }
+
+        .eyebrow,
+        .date {
+            font-size: 1.4rem;
+            line-height: 2.2rem;
+            text-decoration: underline;
+            margin-bottom: 1.5rem;
+        }
+
+        p {
+            font-size: 1.2rem;
+            font-weight: 300;
+            line-height: 1.8rem;
+            color: $border;
+        }
+
+        .biography {
+            margin: 6.3rem auto 7.5rem;
+            display: flex;
+            justify-content: space-between;
+            @include mq-medium-down {
+                flex-direction: column;
+                margin: 5rem auto 5rem;
+            }
+
+            .experience,
+            .education {
+                &.headline {
+                    margin-bottom: 3.8rem;
+                }
+            }
+
+            .story-wrap,
+            .formation,
+            .awards-wrap .reward {
+                .headline {
+                    font-size: 1.6rem;
+                    line-height: 2.2rem;
+                }
+            }
+
+            .experience-module {
+                text-align: right;
+                max-width: 33rem;
+                @include mq-medium-down {
+                    text-align: center;
+                }
+
+                .story-wrap {
+                    &:not(:first-child) {
+                        margin-top: 3.8rem;
+                    }
+
+                    .headline {
+                        letter-spacing: 0.5px;
+                    }
+
+                    .subhead {
+                        font-style: italic;
+                    }
+
+                    p {
+                        max-height: 5.5rem;
+                        overflow: hidden;
+                    }
+                }
+            }
+        }
+
+        .thin {
+            height: auto;
+            margin: 0 4.75rem;
+        }
+
+        .education-module {
+            text-align: left;
+            max-width: 33rem;
+            @include mq-medium-down {
+                text-align: center;
+            }
+
+            .education.headline {
+                @include mq-medium-down {
+                    margin-top: 6rem;
+                }
+            }
+
+            .formation {
+                margin-top: 3.2rem;
+            }
+
+            .skills,
+            .awards {
+                &-wrap {
+                    margin-top: 3.2rem;
+
+                    .headline {
+                        margin-bottom: 2.5rem;
+                    }
+                }
+            }
+            .skills-wrap {
+                .block {
+                    .skill {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        max-width: 27rem;
+
+                        .name {
+                            font-size: 1.4rem;
+                            font-weight: 300;
+                            line-height: 2.2rem;
+                            text-transform: capitalize;
+                        }
+
+                        .rank {
+                            height: 0.6rem;
+                            width: 50%;
+                            background-color: $gray--dark;
+                            padding-right: 2rem;
+                            position: relative;
+
+                            &::after {
+                                content: "";
+                                width: 3rem;
+                                height: inherit;
+                                background-color: $gray--light;
+                                position: absolute;
+                                right: 0;
+                                bottom: 0;
+                                transform: translateX(100%);
+                            }
+                        }
+                    }
+                }
+            }
+
+            .reward {
+                padding-left: 5.2rem;
+                position: relative;
+                
+                &:not(:first-child) {
+                    margin-top: 3.2rem;
+                }
+
+                .date {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                }
+
+                .headline {
+                    margin-bottom: 0;
+                }
+
+                p {
+                    max-height: 4rem;
+                    overflow: hidden;
+                }
+            }
+
+        }
+    }
+}

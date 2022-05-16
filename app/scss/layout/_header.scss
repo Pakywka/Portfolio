@@ -1,0 +1,233 @@
+.site-header {
+    @include position(absolute, $nav-top);
+    width: 100%;
+
+    .header-inner {
+        @include flex(space-between, center);
+
+        @include mq-medium-down {
+            justify-content: center;
+        }
+
+        @include mq-small-down {
+            justify-content: flex-start;
+        }
+    }
+
+    .logo {
+        @include flex(null, center);
+        max-width: 18rem;
+
+        @include mq-medium-down {
+            display: none;
+        }
+
+        .caption {
+            display: inline-block;
+            margin-left: 1rem;
+
+            @media (max-width: 810px) {
+                display: none;
+            }
+
+            .owner {
+                @include text(1.6rem, 1.8rem, 700);
+            }
+
+            .specialty {
+                @include text(1.2rem, 2.2rem);
+            }
+        }
+    }
+
+    .mobile-nav-btn {
+        @include position(absolute, -1.2rem, null, null, 0);
+        width: 5rem;
+        height: 5rem;
+        display: none;
+        outline: none;
+        background: transparent;
+
+        @include mq-small-down {
+            display: block;
+        }
+
+        .menuicon {
+            height: 100%;
+
+            &-bread {
+                @include position(absolute, .9rem, null, null, .9rem);
+                z-index: 3;
+                width: 30px;
+                height: 30px;
+                -webkit-transition: opacity 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+                transition: opacity 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+
+                &-top {
+                    -webkit-transition: -webkit-transform .1806s cubic-bezier(0.04, 0.04, 0.12, 0.96);
+                    transition: -webkit-transform .1806s cubic-bezier(0.04, 0.04, 0.12, 0.96);
+                    transition: transform .1806s cubic-bezier(0.04, 0.04, 0.12, 0.96);
+                    transition: transform .1806s cubic-bezier(0.04, 0.04, 0.12, 0.96), -webkit-transform .1806s cubic-bezier(0.04, 0.04, 0.12, 0.96);
+                    -webkit-transform: none;
+                    transform: none;
+                    z-index: 4;
+                }
+
+                &-bottom {
+                    -webkit-transition: -webkit-transform .1806s cubic-bezier(0.04, 0.04, 0.12, 0.96);
+                    transition: -webkit-transform .1806s cubic-bezier(0.04, 0.04, 0.12, 0.96);
+                    transition: transform .1806s cubic-bezier(0.04, 0.04, 0.12, 0.96);
+                    transition: transform .1806s cubic-bezier(0.04, 0.04, 0.12, 0.96), -webkit-transform .1806s cubic-bezier(0.04, 0.04, 0.12, 0.96);
+                    -webkit-transform: none;
+                    transform: none;
+                }
+
+                &-crust {
+                    @include position(absolute, $left: .7rem);
+                    display: block;
+                    width: 17px;
+                    height: 1px;
+                    background: $primary-dark;
+                    border-radius: 0.5px;
+                    z-index: 1;
+
+                    &-top {
+                        top: 14px;
+                        -webkit-transform: translateY(-3px);
+                        transform: translateY(-3px);
+                        -webkit-transition: -webkit-transform .1596s cubic-bezier(0.52, 0.16, 0.52, 0.84) .1008s;
+                        transition: -webkit-transform .1596s cubic-bezier(0.52, 0.16, 0.52, 0.84) .1008s;
+                        transition: transform .1596s cubic-bezier(0.52, 0.16, 0.52, 0.84) .1008s;
+                        transition: transform .1596s cubic-bezier(0.52, 0.16, 0.52, 0.84) .1008s, -webkit-transform .1596s cubic-bezier(0.52, 0.16, 0.52, 0.84) .1008s;
+                    }
+
+                    &-bottom {
+                        bottom: 14px;
+                        -webkit-transform: translateY(3px);
+                        transform: translateY(3px);
+                        -webkit-transition: -webkit-transform .1596s cubic-bezier(0.52, 0.16, 0.52, 0.84) .1008s;
+                        transition: -webkit-transform .1596s cubic-bezier(0.52, 0.16, 0.52, 0.84) .1008s;
+                        transition: transform .1596s cubic-bezier(0.52, 0.16, 0.52, 0.84) .1008s;
+                        transition: transform .1596s cubic-bezier(0.52, 0.16, 0.52, 0.84) .1008s, -webkit-transform .1596s cubic-bezier(0.52, 0.16, 0.52, 0.84) .1008s;
+                    }
+                }
+            }
+        }
+    }
+
+    .nav-list {
+        @include flex(null, center);
+
+        @include mq-small-down {
+            display: none;
+        }
+
+        .nav-item {
+            &:not(:first-child) {
+                margin-left: 5rem;
+            }
+
+            .nav-link {
+                @include text(1.4rem, null, 700);
+                padding: 0.3rem 0;
+                position: relative;
+                text-transform: uppercase;
+
+                @include mq-medium-down {
+                    @include text(1.2rem);
+                }
+
+                &::after {
+                    @include position(absolute, $bottom: 0, $left: 0);
+                    content: "";
+                    height: 0.2rem;
+                    width: 0;
+                    background-color: $navlink_hover-background;
+                    transition: width .2s linear;
+                }
+
+                &:hover:not(.btn)::after {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    &.active {
+        @include position(fixed, 0, 0, 0, 0);
+        height: 100vh;
+        background-color: $primary-dark;
+        z-index: 999;
+        transition: background-color .3s;
+
+        .logo {
+            display: none;
+        }
+
+        .mobile-nav-btn {
+            top: 0;
+            display: block;
+
+
+            .menuicon {
+                margin: 0;
+
+                &-bread {
+                    &-top {
+                        transform: rotate(45deg);
+                        transition: transform .3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) .1008s, -webkit-transform .3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) .1008s;
+                    }
+
+                    &-bottom {
+                        transform: rotate(-45deg);
+                        transition: transform .3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) .1008s, -webkit-transform .3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) .1008s;
+                    }
+
+                    &-crust {
+                        background-color: $primary-light;
+
+                        &-top {
+                            transform: none;
+                            transition: transform .1806s cubic-bezier(0.04, 0.04, 0.12, 0.96), -webkit-transform .1806s cubic-bezier(0.04, 0.04, 0.12, 0.96);
+                        }
+
+                        &-bottom {
+                            transform: none;
+                            transition: transform .1806s cubic-bezier(0.04, 0.04, 0.12, 0.96), -webkit-transform .1806s cubic-bezier(0.04, 0.04, 0.12, 0.96);
+                        }
+                    }
+                }
+            }
+        }
+
+        .header-inner {
+            height: 100%;
+
+            .nav {
+                @include flexcenter;
+                height: 100%;
+                width: 100%;
+            }
+
+            .nav-list {
+                @include flex(center, null, column);
+
+                .nav-item {
+                    margin: 0;
+
+                    .nav-link {
+                        @include text(3rem, 5rem, null, $primary-light);
+                    }
+
+                    .btn {
+                        @include text(2rem, 5rem, null, $primary-dark);
+                        margin-top: 2rem;
+                        padding: 0 3rem;
+                        border-radius: 4rem;
+                    }
+                }
+            }
+        }
+
+    }
+}

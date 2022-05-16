@@ -1,0 +1,172 @@
+@mixin text ($size, $line-height: null, $weight: null, $color: null) {
+    font-size: $size;
+    line-height: $line-height;
+    font-weight: $weight;
+    color: $color;
+}
+
+
+.modalwork {
+    &-dialog {
+        display: flex;
+        height: 77rem;
+        width: 120rem;
+        position: relative;
+        background-color: $modal-background;
+
+        @include mq-medium-down {
+            flex-direction: column;
+            height: auto;
+            width: 100vw;
+        }
+    }
+
+    &-windowimage {
+        width: calc(100% - ((4 / 12) * 100%));
+        overflow: hidden;
+        background-color: grey;
+
+        @include mq-medium-down {
+            height: 50rem;
+            width: 100%;
+        }
+
+        .works-slider {
+            position: relative;
+        }
+
+        img {
+            width: inherit;
+            height: inherit;
+            object-fit: cover;
+        }
+    }
+
+    &-description {
+        width: calc(100% - ((8 / 12) * 100%));
+        padding: 2.5rem;
+        position: relative;
+
+        @include mq-medium-down {
+            width: 100%;
+            padding: 1.5rem 2.5rem;
+        }
+
+        .description-copy {
+            margin-top: 1rem;
+            max-width: 29rem;
+
+            @include mq-medium-down {
+                max-width: none;
+            }
+
+            .headline {
+                @include text(3.2rem, 4.5rem, 700);
+
+                @include mq-medium-down {
+                    @include text(2.2rem, 3.4rem);
+                }
+            }
+
+
+            .subhead {
+                display: flex;
+                align-items: center;
+                @include text(1.8rem, 2.5rem);
+
+                @include mq-medium-down {
+                    @include text(1.4rem, 2rem);
+                }
+            }
+
+            .client {
+                margin: 3.3rem 0;
+
+                .headline {
+                    @include text(1.6rem, 2.5rem, 700);
+
+                    @include mq-medium-down {
+                        @include text(1.4rem, 2rem);
+                    }
+                }
+
+                .subhead {
+                    @include text(1.4rem, 2.2rem);
+                    font-style: italic;
+
+                    @include mq-medium-down {
+                        @include text(1.2rem, 1.8rem);
+                    }
+                }
+            }
+
+            p {
+                @include text(1.2rem, 2.4rem, 300);
+                max-height: 39rem;
+                overflow: hidden;
+                @include mq-medium-down {
+                    max-height: none;
+                }
+            }
+        }
+
+        .switch-panel {
+            position: absolute;
+            padding: 2.5rem;
+            left: 2.4rem;
+            bottom: 0rem;
+            right: 2.4rem;
+            background-color: $primary-light;
+            @include mq-medium-down {
+                position: fixed;
+            }
+            
+            button {
+                background-color: transparent;
+                border: none;
+                text-transform: uppercase;
+                font-size: 1.4rem;
+                line-height: 2.2rem;
+                position: relative;
+                cursor: pointer;
+                position: absolute;
+                bottom: 1.5rem;
+
+                &.jump-previous {
+                    padding-left: 2rem;
+                    left: 0;
+
+                    &::before {
+                        content: "";
+                        background-image: url("../../images/icon/arrow.png");
+                        display: inline-block;
+                        height: 2rem;
+                        width: 0.8rem;
+                        position: absolute;
+                        bottom: 50%;
+                        left: 0;
+                        transform: translateY(50%);
+                    }
+                }
+
+                &.jump-next {
+                    padding-right: 2rem;
+                    right: 0;
+
+                    &::after {
+                        content: "";
+                        background-image: url("../../images/icon/arrow.png");
+                        display: inline-block;
+                        height: 2rem;
+                        width: 0.8rem;
+                        position: absolute;
+                        bottom: 50%;
+                        right: 0;
+                        transform: rotate(180deg) translateY(-50%);
+                    }
+                }
+            }
+        }
+
+    }
+}
